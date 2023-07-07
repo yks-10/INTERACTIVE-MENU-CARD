@@ -12,6 +12,7 @@ class Item(BaseModel):
     name = models.CharField(max_length=50, null=False, blank=False)
     category = models.CharField(max_length=50, choices=CATEGORY, default=FRESH_JUICE, null=False, blank=False)
     price = models.CharField(max_length=5, null=False, blank=False)
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Item'

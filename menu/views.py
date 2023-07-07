@@ -30,7 +30,7 @@ class ItemView(APIView):
         try:
             category_name = request.GET.get("category_name")
             if category_name:
-                item = Item.objects.filter(category=category_name).order_by('name')
+                item = Item.objects.filter(category=category_name, is_active=True).order_by('name')
                 serializer = ItemSerializer(item, many=True)
                 return CommonUtils.dispatch_success(request, serializer.data)
             else:
@@ -79,6 +79,7 @@ class ItemView(APIView):
             name1 = data.get('new_name')
             category1 = data.get('new_category')
             price = data.get('price')
+            status = data.get('status')
             if name and category:
                 item = Item.objects.get(name=name, category=category)
                 if name1:
@@ -87,6 +88,8 @@ class ItemView(APIView):
                     item.category = category1
                 if price:
                     item.price = price
+                if status:
+                    item.is_active = status
                 item.save()
                 return CommonUtils.dispatch_success(request, "SUCCESS")
             else:
