@@ -28,8 +28,7 @@ class ItemView(APIView):
         @return: List Item details of the category
         """
         try:
-            data = request.data
-            category_name = data.get('name')
+            category_name = request.GET.get("category_name")
             if category_name:
                 item = Item.objects.filter(category=category_name).order_by('name')
                 serializer = ItemSerializer(item, many=True)
