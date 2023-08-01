@@ -25,16 +25,20 @@ SECRET_KEY = 'django-insecure-2hwldecc&n+rg1a^#!f&7t)!=%awyzuo%jk^1j(^1@fn4am_9q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_REGEX_WHITELIST = ('^(http?://)?(\w+\.)?localhost\:3000$',)
-ALLOWED_HOSTS = [
-    'https://interactivemenucard.pythonanywhere.com/',
-    # Localhost
-    'http://localhost:3000',
-    'http://localhost:8000']
+ALLOWED_HOSTS = []
 
-CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
-CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+# hosting config
+
+''' CORS_ORIGIN_ALLOW_ALL = False
+    CORS_ORIGIN_REGEX_WHITELIST = ('^(http?://)?(\w+\.)?localhost\:3000$',)
+    ALLOWED_HOSTS = [
+        'https://interactivemenucard.pythonanywhere.com/',
+        # Localhost
+        'http://localhost:3000',
+        'http://localhost:8000/', 'http://localhost', 'http://127.0.0.1', 'http://::1']
+    
+    CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
+    CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS'''
 
 # Application definition
 
