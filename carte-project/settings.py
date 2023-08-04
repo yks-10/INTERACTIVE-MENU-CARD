@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
     'menu',
 ]
 
@@ -80,6 +81,16 @@ TEMPLATES = [
         },
     },
 ]
+
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,  # Set to True if using Django's session authentication
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+}
 
 WSGI_APPLICATION = 'carte-project.wsgi.application'
 
